@@ -13,7 +13,7 @@ export const TodoSlice = createSlice({
         },
         remove: (state: TODO[], action: { payload: string }) => {
             const id = action.payload;
-            return state = state.filter((item) => item.todoId !== id);
+            return state = state.filter(item => item.todoId !== id);
         },
         update: (state: TODO[], action: { payload: TODO }) => {
             const { todoId } = action.payload;

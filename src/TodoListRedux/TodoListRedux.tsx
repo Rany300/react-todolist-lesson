@@ -82,7 +82,18 @@ const TodoListRedux = () => {
             );
           })}
         </SelectAntd>
-        <ButtonAntd type="primary" onClick={() => dispatch(addTodo(newTodo))}>
+        <ButtonAntd type="primary" onClick={() => {
+          dispatch(addTodo({
+            content: newTodo.content,
+            todoId: uuid(),
+            type: newTodo.type
+          }))
+          setNewTodo({
+            content: "",
+            todoId: uuid(),
+            type: types?.[0]?.typeId || "",
+          })
+        }}>
           Add TODO
         </ButtonAntd>
       </Space>
